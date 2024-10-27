@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Lexend:wght@422&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+body {
+    font-family: "Archivo Narrow", sans-serif;
+}
+
+.content-num {
+    margin: 5.5em 10em;
+    padding: 0.2em;
+    font-size: 2em;
+    background-color: rgba(45, 196, 196, 0.822);
+    border-radius: 0.5em;
+    border: 1px solid rgba(55, 55, 156, 0.473);
+    text-align: center;
+    font-weight: 400;
+}
+
+.number {
+    color: rgb(17, 17, 119);
+}
+
+.ticket-content {
+    font-size: 1.25em;
+    font-weight: 400;
+}
+
+.ticket-content h1 {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 0;
+}
+
+.ticket-data {
+    margin-left: 5em;
+}
+
+.user {
+    font-size: 1.1em;
+    margin-left: 2em;
+    margin-top: 2em;
+}
+
+.all-data {
+    margin: auto 15em;
+    margin-top: 2.5em;
+    padding: 0.4em 0.2em;
+    background-color: rgba(45, 196, 103, 0.822);
+    border-radius: 0.5em;
+    border: 1px solid rgba(25, 82, 32, 0.473);
+}

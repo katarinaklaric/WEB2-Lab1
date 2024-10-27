@@ -1,0 +1,22 @@
+{
+  "name": "lab1auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/webapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/webapp.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-oauth2-jwt-bearer": "^1.6.0",
+    "express-openid-connect": "^2.17.1",
+    "pg": "^8.13.1",
+    "qrcode": "^1.5.4",
+    "uuid": "^10.0.0"
+  }
+}
