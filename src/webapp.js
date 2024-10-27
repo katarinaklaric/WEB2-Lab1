@@ -31,18 +31,20 @@ const config = {
 app.use(auth(config));
 
 const jwtCheck = authToken({
-    audience: 'http://localhost:4070/qr_generate',
+    audience: 'https://dev-e32yjwhlp2yvldt6.us.auth0.com/api/v2/',
     issuerBaseURL: 'https://dev-e32yjwhlp2yvldt6.us.auth0.com/',
     tokenSigningAlg: 'RS256'
 });
 
 app.get('/', async (req, res) => {
+    let username = undefined;
     try {
         const data = await pool.query(`SELECT COUNT(*) FROM ticket_info`);
-        console.log(data.rows[0]);
         const numOfTickets = data.rows[0].count;
-
-        return res.render('home', { numOfTickets });
+        if (req.oidc.isAuthenticated()) {
+            username = req.oidc.user.name;
+        }
+        return res.render('home', { username, numOfTickets });
     } catch(err) {
         console.log(err);
         return res.status(500).send('Došlo je do greške na serveru!');
@@ -52,9 +54,7 @@ app.get('/', async (req, res) => {
 app.get(/\/ticket_info_.*/, requiresAuth(), async function (req, res) {       
     const username = req.oidc.user.name;
     const ticket_path = req.path;
-    console.log(req.path);
     const id = ticket_path.replace('/ticket_info_', '');
-    console.log(id);
 
     try {
         const data = await pool.query(`SELECT * FROM ticket_info WHERE ticket_id = '${id}'`);
@@ -64,7 +64,6 @@ app.get(/\/ticket_info_.*/, requiresAuth(), async function (req, res) {
         const lastName = data.rows[0].last_name;
         let createdAt = data.rows[0].created_at;
         createdAt = convertDate(createdAt);
-        console.log(oib + " " + firstName + " " + lastName + " " + createdAt);
 
         return res.render('ticket', { username, oib, firstName, lastName, createdAt });
     } catch(err) {
@@ -81,7 +80,6 @@ app.post('/qr_generate', jwtCheck, async function (req, res) {
     }
     const uuid = uuidv4();
     let createdAt = new Date();
-    console.log(vatin + " " + firstName + " " + lastName + " " + uuid + " " + createdAt);
 
     try {
         const allData = await pool.query(`SELECT COUNT(*) FROM ticket_info WHERE oib = '${vatin}'`);
@@ -96,7 +94,6 @@ app.post('/qr_generate', jwtCheck, async function (req, res) {
         }
     } catch(err) {
         console.log(err.message);
-        console.log('Greškaaaaaaaaaaaa');
         return res.status(500).send('Došlo je do greške na serveru!');
     }
 

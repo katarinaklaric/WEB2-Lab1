@@ -4,7 +4,7 @@ body {
 }
 
 .content-num {
-    margin: 5.5em 10em;
+    margin: 4em 10em 5em;
     padding: 0.2em;
     font-size: 2em;
     background-color: rgba(45, 196, 196, 0.822);
@@ -12,6 +12,30 @@ body {
     border: 1px solid rgba(55, 55, 156, 0.473);
     text-align: center;
     font-weight: 400;
+}
+
+.log-div {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 3em 7em 0 0;
+}
+
+.login, .logout {
+    float: right;
+    color: rgb(17, 17, 119);
+    background-color: rgb(243, 248, 247);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid rgb(17, 17, 119);
+}
+
+.login:hover {
+    background-color: rgb(91, 144, 223);
+}
+
+.logout:hover {
+    background-color: rgb(91, 144, 223);
 }
 
 .number {
@@ -40,10 +64,69 @@ body {
 }
 
 .all-data {
-    margin: auto 15em;
-    margin-top: 2.5em;
+    margin: 2.5em 15em 0 15em;
     padding: 0.4em 0.2em;
     background-color: rgba(45, 196, 103, 0.822);
     border-radius: 0.5em;
     border: 1px solid rgba(25, 82, 32, 0.473);
+}
+
+@media screen and (max-width: 1070px) {
+    .content-num {
+        margin: 7em 3em 0 3em;
+        padding: 0.2em;
+        font-size: 2em;
+        background-color: rgba(45, 196, 196, 0.822);
+        border-radius: 0.5em;
+        border: 1px solid rgba(55, 55, 156, 0.473);
+        text-align: center;
+        font-weight: 400;
+    }
+
+    .log-div {
+        padding: 3em 2em 0 0;
+    }
+
+    .all-data {
+        margin-right: 4em;
+        margin-left: 4em;
+    }
+
+    .ticket-data {
+        margin-left: 2em;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .content-num {
+        margin: 7em 1em 0 1em;
+        padding: 0.2em;
+        font-size: 1.2em;
+        background-color: rgba(45, 196, 196, 0.822);
+        border-radius: 0.5em;
+        border: 1px solid rgba(55, 55, 156, 0.473);
+        text-align: center;
+        font-weight: 400;
+    }
+
+    .log-div {
+        padding: 3em 1em 0 0;
+    }
+
+    .all-data {
+        margin-right: 1em;
+        margin-left: 1em;
+    }
+
+    .ticket-content {
+        font-size: 1em;
+    }
+
+    .ticket-content h1 {
+        font-size: 2em;
+    }
+
+    .ticket-data {
+        margin-left: 2em;
+    }
 }
